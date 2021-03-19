@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignUpGenius.Models
 {
+    //Set up of the form model -- basically just the appointment model
     public class FormModel
     {
         [Key]

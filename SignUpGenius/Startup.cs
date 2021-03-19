@@ -27,6 +27,7 @@ namespace SignUpGenius
         {
             services.AddControllersWithViews();
 
+            //Sets up the connection to use SQL lite as the database
             services.AddDbContext<SignUpDbContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:SignUpConnection"]);

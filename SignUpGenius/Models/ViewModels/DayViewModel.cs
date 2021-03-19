@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace SignUpGenius.Models.ViewModels
 {
+    //This View Model allows us to break out the views into
+    //days then access other properties of appointment time
     public class DayViewModel
     {
         public IEnumerable<AppointmentTime> Monday { get; set; }

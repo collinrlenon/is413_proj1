@@ -14,6 +14,7 @@ namespace SignUpGenius.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //Context allows us to access the database
         private SignUpDbContext _context { get; set; }
 
         public HomeController(ILogger<HomeController> logger, SignUpDbContext context)
@@ -22,6 +23,7 @@ namespace SignUpGenius.Controllers
             _context = context;
         }
 
+        //Outputs the index view
         public IActionResult Index()
         {
             return View();
@@ -30,6 +32,7 @@ namespace SignUpGenius.Controllers
         [HttpGet]
         public IActionResult SignUpPage()
         {
+            //Allows us to access the Day View Model to filter based on appointment time and whether or not the time it taken.
             DayViewModel dayView = new DayViewModel
             {
                 Monday = _context.AppointmentTime
@@ -48,6 +51,7 @@ namespace SignUpGenius.Controllers
                     .Where(x => x.Day == "Sunday" && x.Scheduled == false)
             };
 
+            //Allows us to still use the Main page model on the view
             return View(new MainPageModel
             {
                 dayViewModel = dayView
@@ -57,13 +61,24 @@ namespace SignUpGenius.Controllers
         [HttpPost]
         public IActionResult SignUpPage(FormModel appResponse)
         {
-            FormTempStorage.AddApplication(appResponse);
+            //Gets the the time the user selected
+            var appt = _context.AppointmentTime
+                    .Where(x => (x.Day + ", " + x.Time) == appResponse.Time)
+                    .FirstOrDefault();
+
+            //Sets the schedule to true to make it as taken then updates the database
+            appt.Scheduled = true;
+            _context.AppointmentTime.Update(appt);
+            _context.SaveChanges();
+
+            //Gets the time
             string myTime = appResponse.Time;
+
+            //Redirects to the sign up form to finalize the appointment 
             return RedirectToAction("SignUpForm", "Home", new { appTime = myTime });
-            //return View("SignUpForm", appTime);
         }
 
-
+        //Outputs the signup form passing the application time
         [HttpGet]
         public IActionResult SignUpForm(string appTime)
         {
@@ -71,6 +86,8 @@ namespace SignUpGenius.Controllers
             tempModel.Time = appTime;
             return View(tempModel);
         }
+
+        //Updates the database with the new appointment
         [HttpPost]
         public IActionResult SignUpForm(FormModel appResponse)
         {
@@ -79,7 +96,6 @@ namespace SignUpGenius.Controllers
             {
                 _context.Form.Add(appResponse);
                 _context.SaveChanges();
-                // Still need to add other functionality in here
                 return View("Index", appResponse);
             }
             else
@@ -89,6 +105,7 @@ namespace SignUpGenius.Controllers
             }
         }
 
+        //Passes the database information to the appointment view
         public IActionResult Appointments()
         {
             return View(_context.Form);

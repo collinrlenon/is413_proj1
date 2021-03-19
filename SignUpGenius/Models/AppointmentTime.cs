@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SignUpGenius.Models
 {
+    //Sets up the appointment time model to handle the available times
     public class AppointmentTime
     {
         [Key]

@@ -20,6 +20,7 @@
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <h5>Monday</h5>
+                    @*These foreach loops output the available times for each day*@
                     @foreach (var x in Model.dayViewModel.Monday)
                     {
                         <input type="radio" name="time" asp-for="formModel.Time" value="@x.Day, @x.Time" id="@x.TimeID" /><label for="@x.TimeID">@x.Time</label><br />
