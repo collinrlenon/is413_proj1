@@ -1182,24 +1182,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/haydenthomas/.nuget/packages/": {}
+    "C:\\Users\\colli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/haydenthomas/Projects/group2_proj1/SignUpGenius/SignUpGenius.csproj",
+      "projectUniqueName": "C:\\Users\\colli\\OneDrive\\Desktop\\group2_proj1\\SignUpGenius\\SignUpGenius.csproj",
       "projectName": "SignUpGenius",
-      "projectPath": "/Users/haydenthomas/Projects/group2_proj1/SignUpGenius/SignUpGenius.csproj",
-      "packagesPath": "/Users/haydenthomas/.nuget/packages/",
-      "outputPath": "/Users/haydenthomas/Projects/group2_proj1/SignUpGenius/obj/",
+      "projectPath": "C:\\Users\\colli\\OneDrive\\Desktop\\group2_proj1\\SignUpGenius\\SignUpGenius.csproj",
+      "packagesPath": "C:\\Users\\colli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\colli\\OneDrive\\Desktop\\group2_proj1\\SignUpGenius\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/haydenthomas/.config/NuGet/NuGet.Config"
+        "C:\\Users\\colli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1257,7 +1259,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
